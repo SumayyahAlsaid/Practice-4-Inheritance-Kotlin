@@ -1,3 +1,5 @@
+import kotlin.math.PI
+
 fun main() {
     // Create SqaureCabin
     // Create object
@@ -17,8 +19,10 @@ fun main() {
     with(roundHut){
       println("\nRound Hut\n============")
     	println("Material: ${buildingMaterial}")
-    	println("Capacity: ${capacity}")   
+    	println("Capacity: ${capacity}") 
+        println("Floor Area: ${floorArea()}")
     	println("Has Room? ${hasRoom()}")
+        getRoom()
     }
     
     // Create RoundTower
@@ -63,7 +67,8 @@ abstract class Dwelling(private var residents : Int){
 
 
 // Subclasses 
-class SqaureCabin(residents : Int, val length : Double) : Dwelling(residents) {
+class SqaureCabin(residents : Int,
+    val length : Double) : Dwelling(residents) {
     override val buildingMaterial = "Wood"
     override val capacity = 6 
     
@@ -72,7 +77,8 @@ class SqaureCabin(residents : Int, val length : Double) : Dwelling(residents) {
     }
 }
 
-open class RoundHut( residents : Int, val radius : Double) : Dwelling(residents){
+open class RoundHut( residents : Int,
+    val radius : Double) : Dwelling(residents){
     override val buildingMaterial = "Straw"
     override val capacity = 3
     
@@ -81,7 +87,10 @@ open class RoundHut( residents : Int, val radius : Double) : Dwelling(residents)
     }
 }
 
-class RoundTower( residents : Int, radius : Double, val floors : Int = 2) : RoundHut(residents, radius) { // floor default value = 2 
+class RoundTower(
+    residents : Int, 
+    radius : Double,
+    val floors : Int = 2) : RoundHut(residents, radius) { // floor default value = 2 
     override val buildingMaterial = "Stone"
     override val capacity = 4 * floors
 
