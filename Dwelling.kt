@@ -15,7 +15,7 @@ fun main() {
     
     // Create RoundHut
     // Create object
-    val roundHut = RoundHut(1, 10.0))
+    val roundHut = RoundHut(1, 10.0)
     with(roundHut){
       println("\nRound Hut\n============")
     	println("Material: ${buildingMaterial}")
